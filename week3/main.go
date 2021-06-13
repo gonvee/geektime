@@ -25,7 +25,7 @@ var (
 func main() {
 	// 信号量处理
 	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
-	go signalHandle()
+	g.Go(signalHandle)
 
 	// 应用服务
 	g.Go(func() error {
