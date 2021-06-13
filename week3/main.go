@@ -44,7 +44,7 @@ func main() {
 		return debug.ListenAndServe()
 	})
 
-	if err := g.Wait(); err != nil && err == graceShutdown {
+	if err := g.Wait(); err != nil && err != graceShutdown {
 		log.Println(err)
 	}
 }
